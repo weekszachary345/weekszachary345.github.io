@@ -1,0 +1,1492 @@
+<!DOCTYPE html>
+<!-- tpl:rar2_内容推荐式 placeholders: keyword title randdesc randkws randkws1 domain -->
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>男女天堂AV - 精选影视合集，畅享沉浸式观影时光</title>
+  <meta name="description" content="男女天堂AV 频道专注为影视爱好者提供多元内容推荐，涵盖剧情、爱情、生活纪实等题材，通过智能分类与高清热播榜单，让每一次浏览都轻松找到心仪作品。页面整合精选合集、热门排行与实用指南，帮助你在碎片时间快速发现优质片单。无论是追求剧情深度还是轻松解压，这里都有适合你的观影选择，并且持续更新内容，保持新鲜感与可看性，让日常娱乐更有品质。">
+  <meta name="keywords" content="男女天堂AV,影视推荐,热播榜单">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    :root {
+      --zid-primary: #a8e6cf;
+      --zid-accent: #2c7a5e;
+      --zid-bg: #e8f8f0;
+      --zid-text: #1e3b31;
+      --zid-card: #ffffff;
+      --zid-shadow: rgba(44, 122, 94, 0.12);
+      --zid-glow: rgba(44, 122, 94, 0.25);
+    }
+
+    body {
+      font-family: system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', sans-serif;
+      background-color: var(--zid-bg);
+      color: var(--zid-text);
+      line-height: 1.6;
+      overflow-x: hidden;
+      position: relative;
+      min-height: 100vh;
+    }
+
+    /* 背景动画容器 */
+    .zid-bg-wrap {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      z-index: 0;
+      pointer-events: none;
+      overflow: hidden;
+    }
+
+    /* 粒子飘落 */
+    .zid-particles {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+    }
+
+    .zid-particle {
+      position: absolute;
+      background: var(--zid-primary);
+      border-radius: 50%;
+      opacity: 0.5;
+      animation: zid-fall linear infinite;
+    }
+
+    @keyframes zid-fall {
+      0% { transform: translateY(-10vh) rotate(0deg); opacity: 0.6; }
+      100% { transform: translateY(110vh) rotate(360deg); opacity: 0; }
+    }
+
+    /* 网格浮动 */
+    .zid-grid {
+      position: absolute;
+      top: -50%;
+      left: -50%;
+      width: 200%;
+      height: 200%;
+      background-image: 
+        linear-gradient(rgba(44, 122, 94, 0.06) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(44, 122, 94, 0.06) 1px, transparent 1px);
+      background-size: 60px 60px;
+      animation: zid-grid-move 30s linear infinite;
+    }
+
+    @keyframes zid-grid-move {
+      0% { transform: translate(0, 0); }
+      100% { transform: translate(60px, 60px); }
+    }
+
+    /* 赛博波纹 */
+    .zid-ripples {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+    }
+
+    .zid-ripple {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      width: 20px;
+      height: 20px;
+      border: 2px solid var(--zid-accent);
+      border-radius: 50%;
+      transform: translate(-50%, -50%) scale(1);
+      animation: zid-ripple-expand 4s ease-out infinite;
+      box-shadow: 0 0 20px var(--zid-glow);
+      opacity: 0.4;
+    }
+
+    .zid-ripple:nth-child(2) { animation-delay: 1.3s; }
+    .zid-ripple:nth-child(3) { animation-delay: 2.6s; }
+
+    @keyframes zid-ripple-expand {
+      0% { width: 20px; height: 20px; opacity: 0.6; }
+      100% { width: 800px; height: 800px; opacity: 0; }
+    }
+
+    /* 页面内容 */
+    .zid-page {
+      position: relative;
+      z-index: 2;
+      max-width: 1280px;
+      margin: 0 auto;
+      padding: 0 20px;
+    }
+
+    /* 导航栏 */
+    .zid-nav {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 18px 0;
+      position: relative;
+      z-index: 100;
+    }
+
+    .zid-logo {
+      font-size: 1.4rem;
+      font-weight: 800;
+      color: var(--zid-accent);
+      letter-spacing: -0.5px;
+      text-decoration: none;
+      background: rgba(255,255,255,0.7);
+      padding: 8px 16px;
+      border-radius: 60px;
+      backdrop-filter: blur(8px);
+      box-shadow: 0 4px 12px var(--zid-shadow);
+    }
+
+    .zid-hamburger {
+      width: 48px;
+      height: 48px;
+      border-radius: 50%;
+      background: var(--zid-card);
+      border: 2px solid var(--zid-primary);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 6px;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      box-shadow: 0 4px 12px var(--zid-shadow);
+    }
+
+    .zid-hamburger span {
+      display: block;
+      width: 22px;
+      height: 2.5px;
+      background: var(--zid-accent);
+      border-radius: 4px;
+      transition: all 0.3s ease;
+    }
+
+    .zid-hamburger.zid-active span:nth-child(1) {
+      transform: rotate(45deg) translate(6px, 6px);
+    }
+    .zid-hamburger.zid-active span:nth-child(2) {
+      opacity: 0;
+    }
+    .zid-hamburger.zid-active span:nth-child(3) {
+      transform: rotate(-45deg) translate(6px, -6px);
+    }
+
+    /* 全屏菜单 */
+    .zid-menu-overlay {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(232, 248, 240, 0.97);
+      backdrop-filter: blur(16px);
+      z-index: 99;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 28px;
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity 0.4s ease;
+    }
+
+    .zid-menu-overlay.zid-open {
+      opacity: 1;
+      pointer-events: auto;
+    }
+
+    .zid-menu-overlay a {
+      font-size: 1.8rem;
+      font-weight: 700;
+      color: var(--zid-text);
+      text-decoration: none;
+      padding: 12px 32px;
+      border-radius: 60px;
+      transition: all 0.3s ease;
+      border-bottom: 2px solid transparent;
+    }
+
+    .zid-menu-overlay a:hover {
+      color: var(--zid-accent);
+      border-bottom-color: var(--zid-accent);
+      background: rgba(255,255,255,0.6);
+    }
+
+    /* hero 区域 */
+    .zid-hero {
+      text-align: center;
+      padding: 70px 20px 50px;
+      position: relative;
+    }
+
+    .zid-hero-deco {
+      font-size: 5rem;
+      font-weight: 900;
+      color: rgba(44, 122, 94, 0.09);
+      letter-spacing: 12px;
+      position: absolute;
+      top: 10px;
+      left: 50%;
+      transform: translateX(-50%);
+      white-space: nowrap;
+      pointer-events: none;
+      user-select: none;
+    }
+
+    .zid-hero h1 {
+      font-size: 2.8rem;
+      font-weight: 800;
+      color: var(--zid-accent);
+      margin-bottom: 18px;
+      position: relative;
+      z-index: 1;
+      letter-spacing: -1px;
+    }
+
+    .zid-hero p {
+      font-size: 1.15rem;
+      color: #3a6b5a;
+      max-width: 620px;
+      margin: 0 auto 18px;
+      position: relative;
+      z-index: 1;
+    }
+
+    .zid-hero-meta {
+      display: inline-flex;
+      align-items: center;
+      gap: 12px;
+      background: rgba(255,255,255,0.75);
+      backdrop-filter: blur(8px);
+      padding: 10px 24px;
+      border-radius: 60px;
+      font-size: 0.95rem;
+      color: var(--zid-accent);
+      font-weight: 600;
+      box-shadow: 0 4px 16px var(--zid-shadow);
+      position: relative;
+      z-index: 1;
+    }
+
+    .zid-hero-btns {
+      display: flex;
+      gap: 16px;
+      justify-content: center;
+      margin-top: 28px;
+      flex-wrap: wrap;
+      position: relative;
+      z-index: 1;
+    }
+
+    .zid-btn {
+      display: inline-block;
+      padding: 14px 36px;
+      background: var(--zid-accent);
+      color: #fff;
+      border: none;
+      border-radius: 60px;
+      font-size: 1rem;
+      font-weight: 700;
+      cursor: pointer;
+      text-decoration: none;
+      transition: all 0.3s ease;
+      box-shadow: 0 6px 20px var(--zid-glow);
+    }
+
+    .zid-btn:hover {
+      background: #1e5e47;
+      transform: translateY(-2px);
+      box-shadow: 0 10px 28px var(--zid-glow);
+    }
+
+    .zid-btn-outline {
+      background: transparent;
+      color: var(--zid-accent);
+      border: 2px solid var(--zid-accent);
+      box-shadow: none;
+    }
+
+    .zid-btn-outline:hover {
+      background: var(--zid-accent);
+      color: #fff;
+    }
+
+    /* 通用 section 标题 */
+    .zid-section {
+      padding: 50px 0;
+      position: relative;
+      z-index: 1;
+    }
+
+    .zid-section-title {
+      font-size: 1.8rem;
+      font-weight: 800;
+      color: var(--zid-accent);
+      margin-bottom: 12px;
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .zid-section-title small {
+      font-size: 0.85rem;
+      font-weight: 600;
+      color: #5a9e85;
+      background: rgba(255,255,255,0.9);
+      padding: 4px 14px;
+      border-radius: 60px;
+    }
+
+    .zid-section-sub {
+      color: #4a7d69;
+      margin-bottom: 32px;
+      font-size: 1rem;
+    }
+
+    /* 卡片叠放布局核心 */
+    .zid-stack-wrap {
+      display: flex;
+      flex-direction: column;
+      gap: 0;
+    }
+
+    .zid-stack-card {
+      display: flex;
+      background: var(--zid-card);
+      border-radius: 24px;
+      overflow: hidden;
+      box-shadow: 0 8px 30px var(--zid-shadow);
+      margin-bottom: -20px;
+      transition: all 0.4s ease;
+      position: relative;
+      border: 2px solid rgba(168, 230, 207, 0.4);
+      cursor: pointer;
+      min-height: 160px;
+    }
+
+    .zid-stack-card:hover {
+      transform: translateY(-8px) scale(1.01);
+      z-index: 10;
+      box-shadow: 0 16px 40px var(--zid-glow);
+      border-color: var(--zid-primary);
+      margin-bottom: 4px;
+    }
+
+    .zid-stack-card:nth-child(odd) {
+      margin-left: 0;
+      margin-right: 40px;
+    }
+
+    .zid-stack-card:nth-child(even) {
+      margin-left: 40px;
+      margin-right: 0;
+      flex-direction: row-reverse;
+    }
+
+    .zid-stack-img {
+      width: 220px;
+      flex-shrink: 0;
+      overflow: hidden;
+    }
+
+    .zid-stack-img img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+      transition: transform 0.4s ease;
+    }
+
+    .zid-stack-card:hover .zid-stack-img img {
+      transform: scale(1.08);
+    }
+
+    .zid-stack-body {
+      flex: 1;
+      padding: 24px 28px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+    }
+
+    .zid-rank-badge {
+      display: inline-block;
+      align-self: flex-start;
+      background: var(--zid-accent);
+      color: #fff;
+      font-size: 0.75rem;
+      font-weight: 800;
+      padding: 5px 14px;
+      border-radius: 60px;
+      letter-spacing: 0.5px;
+      margin-bottom: 8px;
+    }
+
+    .zid-stack-body h3 {
+      font-size: 1.25rem;
+      font-weight: 700;
+      color: var(--zid-text);
+      margin-bottom: 8px;
+      line-height: 1.3;
+    }
+
+    .zid-stack-body p {
+      font-size: 0.92rem;
+      color: #4a7d69;
+      display: -webkit-box;
+      -webkit-line-clamp: 2;
+      -webkit-box-orient: vertical;
+      overflow: hidden;
+      margin-bottom: 12px;
+    }
+
+    .zid-stack-tags {
+      display: flex;
+      gap: 8px;
+      flex-wrap: wrap;
+    }
+
+    .zid-stack-tags span {
+      font-size: 0.72rem;
+      font-weight: 600;
+      color: var(--zid-accent);
+      background: rgba(168, 230, 207, 0.35);
+      padding: 3px 12px;
+      border-radius: 60px;
+    }
+
+    /* 分类筛选 */
+    .zid-cats {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 14px;
+      justify-content: center;
+    }
+
+    .zid-cat-item {
+      background: var(--zid-card);
+      border: 2px solid var(--zid-primary);
+      border-radius: 60px;
+      padding: 12px 28px;
+      font-weight: 700;
+      color: var(--zid-text);
+      cursor: pointer;
+      transition: all 0.3s ease;
+      font-size: 0.95rem;
+      box-shadow: 0 4px 12px var(--zid-shadow);
+    }
+
+    .zid-cat-item:hover,
+    .zid-cat-item.zid-active {
+      background: var(--zid-accent);
+      color: #fff;
+      border-color: var(--zid-accent);
+      transform: translateY(-3px);
+      box-shadow: 0 8px 24px var(--zid-glow);
+    }
+
+    /* 热门标签 */
+    .zid-tag-cloud {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      justify-content: center;
+    }
+
+    .zid-tag {
+      background: rgba(255,255,255,0.85);
+      border-radius: 60px;
+      padding: 10px 24px;
+      font-size: 0.9rem;
+      font-weight: 600;
+      color: var(--zid-accent);
+      border: 1.5px dashed var(--zid-primary);
+      transition: all 0.3s ease;
+      cursor: pointer;
+    }
+
+    .zid-tag:hover {
+      background: var(--zid-accent);
+      color: #fff;
+      border-color: var(--zid-accent);
+      transform: scale(1.05) rotate(-1deg);
+      border-style: solid;
+    }
+
+    /* 热门排行 */
+    .zid-rank-list {
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+    }
+
+    .zid-rank-row {
+      display: flex;
+      align-items: center;
+      gap: 18px;
+      background: var(--zid-card);
+      border-radius: 18px;
+      padding: 14px 22px;
+      box-shadow: 0 4px 16px var(--zid-shadow);
+      transition: all 0.3s ease;
+      border-left: 6px solid var(--zid-primary);
+    }
+
+    .zid-rank-row:hover {
+      transform: translateX(8px);
+      box-shadow: 0 8px 28px var(--zid-glow);
+      border-left-color: var(--zid-accent);
+    }
+
+    .zid-rank-num {
+      font-size: 1.6rem;
+      font-weight: 900;
+      color: var(--zid-accent);
+      min-width: 48px;
+      text-align: center;
+      opacity: 0.6;
+    }
+
+    .zid-rank-row:nth-child(1) .zid-rank-num,
+    .zid-rank-row:nth-child(2) .zid-rank-num,
+    .zid-rank-row:nth-child(3) .zid-rank-num {
+      opacity: 1;
+      color: #d97706;
+    }
+
+    .zid-rank-info {
+      flex: 1;
+    }
+
+    .zid-rank-info h4 {
+      font-size: 1.05rem;
+      font-weight: 700;
+      margin-bottom: 4px;
+    }
+
+    .zid-rank-info p {
+      font-size: 0.82rem;
+      color: #5a9e85;
+    }
+
+    .zid-rank-hot {
+      font-size: 0.78rem;
+      font-weight: 700;
+      color: #e11d48;
+      background: rgba(225, 29, 72, 0.08);
+      padding: 4px 14px;
+      border-radius: 60px;
+      white-space: nowrap;
+    }
+
+    /* 编辑精选 */
+    .zid-picks-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 24px;
+    }
+
+    .zid-pick-card {
+      background: var(--zid-card);
+      border-radius: 22px;
+      overflow: hidden;
+      box-shadow: 0 6px 24px var(--zid-shadow);
+      transition: all 0.4s ease;
+      border: 1px solid rgba(168, 230, 207, 0.5);
+    }
+
+    .zid-pick-card:hover {
+      transform: translateY(-6px);
+      box-shadow: 0 16px 40px var(--zid-glow);
+    }
+
+    .zid-pick-img {
+      width: 100%;
+      height: 170px;
+      overflow: hidden;
+    }
+
+    .zid-pick-img img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+      transition: transform 0.4s ease;
+    }
+
+    .zid-pick-card:hover .zid-pick-img img {
+      transform: scale(1.06);
+    }
+
+    .zid-pick-body {
+      padding: 20px 22px 24px;
+    }
+
+    .zid-pick-body h4 {
+      font-size: 1.1rem;
+      font-weight: 700;
+      margin-bottom: 8px;
+    }
+
+    .zid-pick-body p {
+      font-size: 0.88rem;
+      color: #4a7d69;
+      margin-bottom: 10px;
+      display: -webkit-box;
+      -webkit-line-clamp: 2;
+      -webkit-box-orient: vertical;
+      overflow: hidden;
+    }
+
+    .zid-pick-label {
+      display: inline-block;
+      background: var(--zid-accent);
+      color: #fff;
+      font-size: 0.7rem;
+      font-weight: 700;
+      padding: 3px 12px;
+      border-radius: 60px;
+      letter-spacing: 0.5px;
+    }
+
+    /* 查看更多 CTA */
+    .zid-cta {
+      text-align: center;
+      background: linear-gradient(135deg, rgba(168, 230, 207, 0.5) 0%, rgba(255,255,255,0.8) 100%);
+      border-radius: 32px;
+      padding: 56px 28px;
+      margin: 20px 0 40px;
+      border: 2px solid rgba(168, 230, 207, 0.8);
+      box-shadow: 0 8px 32px var(--zid-shadow);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .zid-cta::before {
+      content: '';
+      position: absolute;
+      top: -50%;
+      right: -50%;
+      width: 200%;
+      height: 200%;
+      background: radial-gradient(circle, rgba(44,122,94,0.06) 0%, transparent 70%);
+      animation: zid-cta-glow 8s infinite alternate;
+    }
+
+    @keyframes zid-cta-glow {
+      0% { transform: translate(0, 0); }
+      100% { transform: translate(-40px, -40px); }
+    }
+
+    .zid-cta h3 {
+      font-size: 2rem;
+      font-weight: 800;
+      color: var(--zid-accent);
+      margin-bottom: 14px;
+      position: relative;
+      z-index: 1;
+    }
+
+    .zid-cta p {
+      color: #3a6b5a;
+      max-width: 480px;
+      margin: 0 auto 26px;
+      position: relative;
+      z-index: 1;
+    }
+
+    /* 页脚 */
+    .zid-footer {
+      background: rgba(30, 59, 49, 0.95);
+      color: #c9e8dc;
+      padding: 48px 0 28px;
+      border-radius: 36px 36px 0 0;
+      margin-top: 30px;
+      position: relative;
+      z-index: 2;
+    }
+
+    .zid-footer-grid {
+      display: grid;
+      grid-template-columns: 1.4fr 1fr 1fr 1fr;
+      gap: 40px;
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 24px;
+    }
+
+    .zid-footer-brand h4 {
+      font-size: 1.15rem;
+      font-weight: 800;
+      color: #fff;
+      margin-bottom: 12px;
+    }
+
+    .zid-footer-brand p {
+      font-size: 0.85rem;
+      line-height: 1.7;
+      color: #a8cfc0;
+    }
+
+    .zid-footer h5 {
+      font-size: 0.95rem;
+      font-weight: 700;
+      color: #fff;
+      margin-bottom: 16px;
+    }
+
+    .zid-footer ul {
+      list-style: none;
+    }
+
+    .zid-footer ul li {
+      margin-bottom: 10px;
+    }
+
+    .zid-footer ul li a {
+      color: #a8cfc0;
+      text-decoration: none;
+      font-size: 0.85rem;
+      transition: color 0.3s;
+    }
+
+    .zid-footer ul li a:hover {
+      color: #fff;
+    }
+
+    .zid-footer-bottom {
+      text-align: center;
+      padding-top: 32px;
+      margin-top: 32px;
+      border-top: 1px solid rgba(168, 230, 207, 0.2);
+      font-size: 0.8rem;
+      color: #8ab8a8;
+      max-width: 1200px;
+      margin-left: auto;
+      margin-right: auto;
+      padding-left: 24px;
+      padding-right: 24px;
+    }
+
+    .zid-footer-bottom p {
+      margin-bottom: 6px;
+    }
+
+    /* 响应式 */
+    @media (max-width: 768px) {
+      .zid-hero h1 { font-size: 1.8rem; }
+      .zid-hero-deco { font-size: 3rem; letter-spacing: 6px; }
+      .zid-hero p { font-size: 1rem; }
+
+      .zid-stack-card,
+      .zid-stack-card:nth-child(odd),
+      .zid-stack-card:nth-child(even) {
+        flex-direction: column;
+        margin-left: 0;
+        margin-right: 0;
+        margin-bottom: -12px;
+      }
+
+      .zid-stack-img {
+        width: 100%;
+        height: 150px;
+      }
+
+      .zid-stack-body {
+        padding: 18px 20px;
+      }
+
+      .zid-footer-grid {
+        grid-template-columns: 1fr;
+        gap: 28px;
+      }
+
+      .zid-section-title {
+        font-size: 1.4rem;
+      }
+
+      .zid-menu-overlay a {
+        font-size: 1.3rem;
+      }
+
+      .zid-rank-row {
+        padding: 12px 16px;
+        gap: 10px;
+      }
+
+      .zid-rank-num {
+        font-size: 1.2rem;
+        min-width: 34px;
+      }
+    }
+
+    @media (max-width: 480px) {
+      .zid-hero h1 { font-size: 1.5rem; }
+      .zid-hero { padding: 40px 12px 30px; }
+      .zid-btn { padding: 12px 24px; font-size: 0.9rem; }
+      .zid-logo { font-size: 1rem; padding: 6px 12px; }
+      .zid-cat-item { padding: 9px 18px; font-size: 0.85rem; }
+      .zid-picks-grid { grid-template-columns: 1fr; }
+    }
+  
+    .auto-reveal{opacity:0;transform:translateY(30px);transition:opacity .7s ease,transform .7s ease}
+    .auto-reveal.auto-visible{opacity:1;transform:translateY(0)}
+    </style>
+<!-- page p01 theme pink ai=1 -->
+</head>
+<body>
+
+<!-- 背景动画 -->
+<div class="zid-bg-wrap">
+  <div class="zid-grid"></div>
+  <div class="zid-ripples">
+    <div class="zid-ripple"></div>
+    <div class="zid-ripple"></div>
+    <div class="zid-ripple"></div>
+  </div>
+  <div class="zid-particles" id="zidParticles"></div>
+</div>
+
+<!-- 导航 -->
+<div class="zid-page">
+  <nav class="zid-nav">
+    <a href="#" class="zid-logo">男女天堂AV</a>
+    <div class="zid-hamburger" id="zidHamburger" aria-label="打开菜单">
+      <span></span>
+      <span></span>
+      <span></span>
+    </div>
+  </nav>
+</div>
+
+<!-- 全屏菜单 -->
+<div class="zid-menu-overlay" id="zidMenu">
+  <a href="#" onclick="closeMenu()">首页总览</a>
+  <a href="#zid-recommend" onclick="closeMenu()">推荐列表</a>
+  <a href="#zid-cats" onclick="closeMenu()">分类筛选</a>
+  <a href="#zid-tags" onclick="closeMenu()">热门标签</a>
+  <a href="#zid-rank" onclick="closeMenu()">热门排行</a>
+  <a href="#zid-picks" onclick="closeMenu()">编辑精选</a>
+  <a href="#zid-cta" onclick="closeMenu()">查看更多</a>
+</div>
+
+<!-- Hero -->
+<header class="zid-page">
+  <div class="zid-hero">
+    <div class="zid-hero-deco">金主</div>
+    <h1>精选推荐 · 一站式浏览</h1>
+    <p>男女天堂AV，甜心有约甜蜜定制高端找糖爹糖宝金主中介平台，在这里，您可以找到属于您的甜蜜定制，全球数万人已经成功牵手，是领先的糖爹找糖宝约会平台，免费注册，拒绝低俗色情，打造健康交友</p>
+    <div class="zid-hero-meta">
+      <span>📅 更新日期：2025-04-09</span>
+      <span>🔥 今日已更新 12 条</span>
+    </div>
+    <div class="zid-hero-btns">
+      <a href="#zid-recommend" class="zid-btn">开始浏览</a>
+      <a href="#zid-rank" class="zid-btn zid-btn-outline">查看热榜</a>
+    </div>
+  </div>
+</header>
+
+<!-- 推荐列表 -->
+<section class="zid-section zid-page" id="zid-recommend">
+  <h2 class="zid-section-title">推荐列表 <small>TOP 榜单·每日更新</small></h2>
+  <p class="zid-section-sub">根据热度、口碑与编辑评分综合排序，以下为今日推荐内容。</p>
+  <div class="zid-stack-wrap">
+
+    <article class="zid-stack-card">
+      <div class="zid-stack-img">
+        <img src="https://picsum.photos/seed/%E7%94%B7%E5%A5%B3%E5%A4%A9%E5%A0%82AV-pink-014d6501/800/450" alt="雾气山峰推荐封面">
+      </div>
+      <div class="zid-stack-body">
+        <span class="zid-rank-badge">TOP 1 · 热度榜</span>
+        <h3>金主严选 · 晨间山峰精选资源</h3>
+        <p>雾气山峰专题推荐，汇集高口碑内容资源，每日更新精选榜单，一站式查看。</p>
+        <div class="zid-stack-tags">
+          <span>精选推荐</span><span>每日更新</span><span>高口碑</span>
+        </div>
+      </div>
+    </article>
+
+    <article class="zid-stack-card">
+      <div class="zid-stack-img">
+        <img src="https://picsum.photos/seed/男女天堂AV/800/450" alt="披萨美食推荐封面">
+      </div>
+      <div class="zid-stack-body">
+        <span class="zid-rank-badge">TOP 2 · 热度榜</span>
+        <h3>金主美食 · 披萨精选专题</h3>
+        <p>热门美食资源聚合，披萨专题位列本周推荐前列，深受用户喜爱。</p>
+        <div class="zid-stack-tags">
+          <span>美食专题</span><span>热门资源</span><span>每日上新</span>
+        </div>
+      </div>
+    </article>
+
+    <article class="zid-stack-card">
+      <div class="zid-stack-img">
+        <img src="https://picsum.photos/seed/男女天堂AV/800/450" alt="老式收音机复古推荐封面">
+      </div>
+      <div class="zid-stack-body">
+        <span class="zid-rank-badge">TOP 3 · 热度榜</span>
+        <h3>金主甄选 · 复古电台内容精选</h3>
+        <p>老式收音机主题资源，复古风格内容专题，精选推荐持续更新中。</p>
+        <div class="zid-stack-tags">
+          <span>复古专题</span><span>内容精选</span><span>持续更新</span>
+        </div>
+      </div>
+    </article>
+
+    <article class="zid-stack-card">
+      <div class="zid-stack-img">
+        <img src="https://picsum.photos/seed/男女天堂AV/800/450" alt="夜晚街道路灯推荐封面">
+      </div>
+      <div class="zid-stack-body">
+        <span class="zid-rank-badge">TOP 4 · 热度榜</span>
+        <h3>金主夜读 · 夜晚街道氛围专题</h3>
+        <p>夜晚街灯主题内容合集，适合深夜浏览的精选推荐，每日更新。</p>
+        <div class="zid-stack-tags">
+          <span>夜读专题</span><span>氛围内容</span><span>深夜精选</span>
+        </div>
+      </div>
+    </article>
+
+    <article class="zid-stack-card">
+      <div class="zid-stack-img">
+        <img src="https://picsum.photos/seed/男女天堂AV/800/450" alt="湖畔晚霞推荐封面">
+      </div>
+      <div class="zid-stack-body">
+        <span class="zid-rank-badge">TOP 5 · 热度榜</span>
+        <h3>金主风光 · 湖畔晚霞精选集</h3>
+        <p>湖畔晚霞主题内容推荐，自然风光类资源热度持续攀升。</p>
+        <div class="zid-stack-tags">
+          <span>风光专题</span><span>自然精选</span><span>热门推荐</span>
+        </div>
+      </div>
+    </article>
+
+    <article class="zid-stack-card">
+      <div class="zid-stack-img">
+        <img src="https://picsum.photos/seed/男女天堂AV/800/450" alt="沙拉碗健康推荐封面">
+      </div>
+      <div class="zid-stack-body">
+        <span class="zid-rank-badge">TOP 6 · 热度榜</span>
+        <h3>金主轻食 · 沙拉碗健康专题</h3>
+        <p>健康轻食内容精选，沙拉碗主题推荐，适合关注健康生活的用户浏览。</p>
+        <div class="zid-stack-tags">
+          <span>健康专题</span><span>轻食精选</span><span>编辑推荐</span>
+        </div>
+      </div>
+    </article>
+
+    <article class="zid-stack-card">
+      <div class="zid-stack-img">
+        <img src="https://picsum.photos/seed/男女天堂AV/800/450" alt="汉堡美食推荐封面">
+      </div>
+      <div class="zid-stack-body">
+        <span class="zid-rank-badge">TOP 7 · 热度榜</span>
+        <h3>金主快餐 · 汉堡套餐精选推荐</h3>
+        <p>汉堡套餐主题内容资源，快餐类精选推荐，热度稳步上升中。</p>
+        <div class="zid-stack-tags">
+          <span>快餐专题</span><span>精选推荐</span><span>热门资源</span>
+        </div>
+      </div>
+    </article>
+
+    <article class="zid-stack-card">
+      <div class="zid-stack-img">
+        <img src="https://picsum.photos/seed/男女天堂AV/800/450" alt="餐厅氛围推荐封面">
+      </div>
+      <div class="zid-stack-body">
+        <span class="zid-rank-badge">TOP 8 · 热度榜</span>
+        <h3>金主探店 · 餐厅氛围专题推荐</h3>
+        <p>餐厅氛围主题内容合集，精选探店类推荐，每日更新榜单。</p>
+        <div class="zid-stack-tags">
+          <span>探店专题</span><span>氛围精选</span><span>每日更新</span>
+        </div>
+      </div>
+    </article>
+
+    <article class="zid-stack-card">
+      <div class="zid-stack-img">
+        <img src="https://picsum.photos/seed/男女天堂AV/800/450" alt="城市夜景河畔推荐封面">
+      </div>
+      <div class="zid-stack-body">
+        <span class="zid-rank-badge">TOP 9 · 热度榜</span>
+        <h3>金主夜色 · 城市河畔夜景精选</h3>
+        <p>城市夜景河畔主题推荐，夜晚城市灯光内容精选，适合收藏浏览。</p>
+        <div class="zid-stack-tags">
+          <span>夜景专题</span><span>城市精选</span><span>收藏推荐</span>
+        </div>
+      </div>
+    </article>
+
+    <article class="zid-stack-card">
+      <div class="zid-stack-img">
+        <img src="https://picsum.photos/seed/男女天堂AV/800/450" alt="丛林小径推荐封面">
+      </div>
+      <div class="zid-stack-body">
+        <span class="zid-rank-badge">TOP 10 · 热度榜</span>
+        <h3>金主探险 · 丛林小径内容精选</h3>
+        <p>丛林小径主题资源推荐，探险类内容精选，持续更新热门榜单。</p>
+        <div class="zid-stack-tags">
+          <span>探险专题</span><span>内容精选</span><span>热门榜单</span>
+        </div>
+      </div>
+    </article>
+
+    <article class="zid-stack-card">
+      <div class="zid-stack-img">
+        <img src="https://picsum.photos/seed/男女天堂AV/800/450" alt="湖泊山脉推荐封面">
+      </div>
+      <div class="zid-stack-body">
+        <span class="zid-rank-badge">TOP 11 · 热度榜</span>
+        <h3>金主山水 · 湖泊山脉精选合集</h3>
+        <p>湖泊山脉主题内容推荐，山水风光类精选，热度持续上升。</p>
+        <div class="zid-stack-tags">
+          <span>山水专题</span><span>风光精选</span><span>持续更新</span>
+        </div>
+      </div>
+    </article>
+
+    <article class="zid-stack-card">
+      <div class="zid-stack-img">
+        <img src="https://picsum.photos/seed/男女天堂AV/800/450" alt="夜晚城市灯光推荐封面">
+      </div>
+      <div class="zid-stack-body">
+        <span class="zid-rank-badge">TOP 12 · 热度榜</span>
+        <h3>金主城市 · 夜晚灯光景观精选</h3>
+        <p>夜晚城市灯光主题内容，景观类精选推荐，每日更新榜单。</p>
+        <div class="zid-stack-tags">
+          <span>城市专题</span><span>灯光精选</span><span>每日更新</span>
+        </div>
+      </div>
+    </article>
+
+  </div>
+</section>
+<!-- env:prod -->
+
+<!-- 分类筛选 -->
+<section class="zid-section zid-page" id="zid-cats">
+  <h2 class="zid-section-title">分类筛选 <small>6-8 个分类</small></h2>
+  <p class="zid-section-sub">按类别快速定位感兴趣的内容，点击分类进行筛选。</p>
+  <div class="zid-cats">
+    <div class="zid-cat-item zid-active">全部推荐</div>
+    <div class="zid-cat-item">自然风光</div>
+    <div class="zid-cat-item">美食精选</div>
+    <div class="zid-cat-item">城市夜景</div>
+    <div class="zid-cat-item">复古专题</div>
+    <div class="zid-cat-item">健康轻食</div>
+    <div class="zid-cat-item">探险户外</div>
+    <div class="zid-cat-item">深夜推荐</div>
+  </div>
+</section>
+<!-- v:2026 -->
+
+<!-- 热门标签 -->
+<section class="zid-section zid-page" id="zid-tags">
+  <h2 class="zid-section-title">热门标签 <small>10-12 个</small></h2>
+  <p class="zid-section-sub">点击标签查看相关精选内容，热门标签实时更新。</p>
+  <div class="zid-tag-cloud">
+    <span class="zid-tag">#每日更新</span>
+    <span class="zid-tag">#精选榜单</span>
+    <span class="zid-tag">#高口碑推荐</span>
+    <span class="zid-tag">#热门排行</span>
+    <span class="zid-tag">#编辑精选</span>
+    <span class="zid-tag">#手机浏览</span>
+    <span class="zid-tag">#一站式平台</span>
+    <span class="zid-tag">#优质内容</span>
+    <span class="zid-tag">#海量资源</span>
+    <span class="zid-tag">#在线查看</span>
+    <span class="zid-tag">#内容推荐</span>
+    <span class="zid-tag">#免费浏览</span>
+  </div>
+</section>
+<!-- env:prod -->
+
+<!-- 热门排行 Top 8 -->
+<section class="zid-section zid-page" id="zid-rank">
+  <h2 class="zid-section-title">热门排行 <small>Top 8</small></h2>
+  <p class="zid-section-sub">根据近7日热度指数自动排序，每日更新。</p>
+  <div class="zid-rank-list">
+    <div class="zid-rank-row">
+      <span class="zid-rank-num">01</span>
+      <div class="zid-rank-info">
+        <h4>金主严选 · 晨间山峰精选资源</h4>
+        <p>自然风光 · 持续霸榜</p>
+      </div>
+      <span class="zid-rank-hot">🔥 9.8w</span>
+    </div>
+    <div class="zid-rank-row">
+      <span class="zid-rank-num">02</span>
+      <div class="zid-rank-info">
+        <h4>金主美食 · 披萨精选专题</h4>
+        <p>美食精选 · 热度飙升</p>
+      </div>
+      <span class="zid-rank-hot">🔥 8.6w</span>
+    </div>
+    <div class="zid-rank-row">
+      <span class="zid-rank-num">03</span>
+      <div class="zid-rank-info">
+        <h4>金主甄选 · 复古电台内容精选</h4>
+        <p>复古专题 · 口碑推荐</p>
+      </div>
+      <span class="zid-rank-hot">🔥 7.9w</span>
+    </div>
+    <div class="zid-rank-row">
+      <span class="zid-rank-num">04</span>
+      <div class="zid-rank-info">
+        <h4>金主夜读 · 夜晚街道氛围专题</h4>
+        <p>深夜推荐 · 收藏热门</p>
+      </div>
+      <span class="zid-rank-hot">🔥 7.2w</span>
+    </div>
+    <div class="zid-rank-row">
+      <span class="zid-rank-num">05</span>
+      <div class="zid-rank-info">
+        <h4>金主风光 · 湖畔晚霞精选集</h4>
+        <p>自然风光 · 编辑推荐</p>
+      </div>
+      <span class="zid-rank-hot">🔥 6.5w</span>
+    </div>
+    <div class="zid-rank-row">
+      <span class="zid-rank-num">06</span>
+      <div class="zid-rank-info">
+        <h4>金主轻食 · 沙拉碗健康专题</h4>
+        <p>健康轻食 · 新晋热门</p>
+      </div>
+      <span class="zid-rank-hot">🔥 5.8w</span>
+    </div>
+    <div class="zid-rank-row">
+      <span class="zid-rank-num">07</span>
+      <div class="zid-rank-info">
+        <h4>金主快餐 · 汉堡套餐精选推荐</h4>
+        <p>美食精选 · 稳定上榜</p>
+      </div>
+      <span class="zid-rank-hot">🔥 5.1w</span>
+    </div>
+    <div class="zid-rank-row">
+      <span class="zid-rank-num">08</span>
+      <div class="zid-rank-info">
+        <h4>金主探店 · 餐厅氛围专题推荐</h4>
+        <p>城市生活 · 热度上升</p>
+      </div>
+      <span class="zid-rank-hot">🔥 4.6w</span>
+    </div>
+  </div>
+</section>
+
+<!-- 编辑精选 -->
+<section class="zid-section zid-page" id="zid-picks">
+  <h2 class="zid-section-title">编辑精选 <small>6-8 条</small></h2>
+  <p class="zid-section-sub">编辑团队人工筛选，每日推荐高质量内容。</p>
+  <div class="zid-picks-grid">
+
+    <div class="zid-pick-card">
+      <div class="zid-pick-img">
+        <img src="https://picsum.photos/seed/男女天堂AV/800/450" alt="复古相机编辑精选">
+      </div>
+      <div class="zid-pick-body">
+        <span class="zid-pick-label">编辑精选</span>
+        <h4>金主影像 · 复古相机专题</h4>
+        <p>复古相机主题内容精选，适合摄影爱好者浏览收藏。</p>
+      </div>
+    </div>
+
+    <div class="zid-pick-card">
+      <div class="zid-pick-img">
+        <img src="https://picsum.photos/seed/男女天堂AV/800/450" alt="花海编辑精选">
+      </div>
+      <div class="zid-pick-body">
+        <span class="zid-pick-label">编辑精选</span>
+        <h4>金主自然 · 花海视觉精选</h4>
+        <p>花海主题内容推荐，色彩丰富，适合放松浏览。</p>
+      </div>
+    </div>
+
+    <div class="zid-pick-card">
+      <div class="zid-pick-img">
+        <img src="https://picsum.photos/seed/男女天堂AV/800/450" alt="森林晨雾编辑精选">
+      </div>
+      <div class="zid-pick-body">
+        <span class="zid-pick-label">编辑精选</span>
+        <h4>金主晨间 · 森林晨雾专题</h4>
+        <p>森林晨雾主题资源，清新自然的精选推荐。</p>
+      </div>
+    </div>
+
+    <div class="zid-pick-card">
+      <div class="zid-pick-img">
+        <img src="https://picsum.photos/seed/男女天堂AV/800/450" alt="城市夜景高楼编辑精选">
+      </div>
+      <div class="zid-pick-body">
+        <span class="zid-pick-label">编辑精选</span>
+        <h4>金主都市 · 夜晚高楼夜景</h4>
+        <p>城市夜景高楼主题精选，繁华都市夜色推荐。</p>
+      </div>
+    </div>
+
+    <div class="zid-pick-card">
+      <div class="zid-pick-img">
+        <img src="https://picsum.photos/seed/男女天堂AV/800/450" alt="阳光森林编辑精选">
+      </div>
+      <div class="zid-pick-body">
+        <span class="zid-pick-label">编辑精选</span>
+        <h4>金主阳光 · 森林光影专题</h4>
+        <p>阳光森林主题内容，温暖治愈的精选推荐。</p>
+      </div>
+    </div>
+
+    <div class="zid-pick-card">
+      <div class="zid-pick-img">
+        <img src="https://picsum.photos/seed/男女天堂AV/800/450" alt="绿色森林小路编辑精选">
+      </div>
+      <div class="zid-pick-body">
+        <span class="zid-pick-label">编辑精选</span>
+        <h4>金主漫步 · 绿色森林小路</h4>
+        <p>绿色森林小路专题，适合放松心情的精选内容。</p>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- 查看更多 CTA -->
+<section class="zid-section zid-page" id="zid-cta">
+  <div class="zid-cta">
+    <h3>查看更多精选内容</h3>
+    <p>男女天堂AV每日更新优质推荐，热门排行、分类筛选、编辑精选，一站式浏览体验。</p>
+    <a href="#" class="zid-btn">立即查看全部</a>
+  </div>
+</section>
+<!-- env:prod -->
+
+<!-- 页脚 -->
+<footer class="zid-footer">
+  <div class="zid-footer-grid">
+
+    <div class="zid-footer-brand">
+      <h4>男女天堂AV</h4>
+      <p>专注优质内容精选推荐，每日更新热门榜单、编辑精选与分类筛选，手机电脑一站式浏览，发现更多精彩。</p>
+    </div>
+
+    <div>
+      <h5>快速导航</h5>
+      <ul>
+        <li><a href="#zid-recommend">推荐列表</a></li>
+        <li><a href="#zid-cats">分类筛选</a></li>
+        <li><a href="#zid-tags">热门标签</a></li>
+        <li><a href="#zid-rank">热门排行</a></li>
+        <li><a href="#zid-picks">编辑精选</a></li>
+      </ul>
+    </div>
+
+    <div>
+      <h5>热门标签</h5>
+      <ul>
+        <li><a href="#zid-tags">每日更新</a></li>
+        <li><a href="#zid-tags">精选榜单</a></li>
+        <li><a href="#zid-tags">高口碑推荐</a></li>
+        <li><a href="#zid-tags">一站式平台</a></li>
+        <li><a href="#zid-tags">海量资源</a></li>
+      </ul>
+    </div>
+
+    <div>
+      <h5>联系入口</h5>
+      <ul>
+        <li><a href="#">意见反馈</a></li>
+        <li><a href="#">合作咨询</a></li>
+        <li><a href="#">内容投稿</a></li>
+        <li><a href="#">帮助中心</a></li>
+      </ul>
+    </div>
+
+  </div>
+
+  <div class="zid-footer-bottom">
+    <p>© 2025 weekszachary345.github.io </p>
+    <p>蒙ICP备202300817417号-12</p>
+    <p>免责声明：本页面内容为推荐展示，所有资源信息仅供参考，请自行判断并遵守相关法律法规。</p>
+  </div>
+</footer>
+
+<script>
+  // 粒子飘落生成
+  (function() {
+    var container = document.getElementById('zidParticles');
+    var count = 60;
+    for (var i = 0; i < count; i++) {
+      var p = document.createElement('div');
+      p.className = 'zid-particle';
+      var size = Math.random() * 6 + 2;
+      p.style.width = size + 'px';
+      p.style.height = size + 'px';
+      p.style.left = Math.random() * 100 + '%';
+      p.style.top = '-10px';
+      p.style.animationDuration = (Math.random() * 12 + 8) + 's';
+      p.style.animationDelay = (Math.random() * 12) + 's';
+      p.style.opacity = Math.random() * 0.5 + 0.15;
+      p.style.background = Math.random() > 0.5 ? '#a8e6cf' : '#2c7a5e';
+      container.appendChild(p);
+    }
+  })();
+
+  // 汉堡菜单
+  var hamburger = document.getElementById('zidHamburger');
+  var menu = document.getElementById('zidMenu');
+
+  hamburger.addEventListener('click', function() {
+    this.classList.toggle('zid-active');
+    menu.classList.toggle('zid-open');
+    document.body.style.overflow = menu.classList.contains('zid-open') ? 'hidden' : '';
+  });
+
+  function closeMenu() {
+    hamburger.classList.remove('zid-active');
+    menu.classList.remove('zid-open');
+    document.body.style.overflow = '';
+  }
+
+  // 分类筛选交互
+  var catItems = document.querySelectorAll('.zid-cat-item');
+  catItems.forEach(function(item) {
+    item.addEventListener('click', function() {
+      catItems.forEach(function(c) { c.classList.remove('zid-active'); });
+      this.classList.add('zid-active');
+    });
+  });
+
+  // 平滑滚动已在锚点中，补一下菜单点击后的关闭逻辑
+  document.querySelectorAll('.zid-menu-overlay a').forEach(function(link) {
+    link.addEventListener('click', function(e) {
+      // closeMenu 已内联调用，这里不再重复
+    });
+  });
+</script>
+
+<!-- JSON-LD -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Organization",
+  "name": "男女天堂AV",
+  "description": "男女天堂AV 频道专注为影视爱好者提供多元内容推荐，涵盖剧情、爱情、生活纪实等题材，通过智能分类与高清热播榜单，让每一次浏览都轻松找到心仪作品。页面整合精选合集、热门排行与实用指南，帮助你在碎片时间快速发现优质片单。无论是追求剧情深度还是轻松解压，这里都有适合你的观影选择，并且持续更新内容，保持新鲜感与可看性，让日常娱乐更有品质。",
+  "slogan": "精选推荐 · 一站式浏览"
+}
+</script>
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "男女天堂AV的内容需要付费吗？",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "男女天堂AV提供免费浏览服务，所有推荐内容均可直接查看，无需额外付费。"
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "男女天堂AV的会员费用是多少？",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "目前平台不设会员收费项目，全部内容免费开放。如需了解更多收费相关说明，请留意页面更新或联系客服。"
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "男女天堂AV是否支持手机浏览？",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "支持。男女天堂AV自适应手机、平板与电脑端，随时随地可浏览精选推荐内容。"
+      }
+    }
+  ]
+}
+</script>
+
+
+    <script>
+    (function(){
+      var items = document.querySelectorAll('section, article, .card, .feature-card, .content-card, .vcard, .post, .review-card, .category-card, .board-row, .rank-item, .playlist-card, .faq-item');
+      if (!items.length) return;
+      items.forEach(function(el){
+        if (!el.classList.contains('auto-reveal')) el.classList.add('auto-reveal');
+      });
+      var io = new IntersectionObserver(function(entries){
+        entries.forEach(function(entry){
+          if (entry.isIntersecting) {
+            entry.target.classList.add('auto-visible');
+            io.unobserve(entry.target);
+          }
+        });
+      }, { threshold: 0, rootMargin: '0px 0px 60px 0px' });
+      document.querySelectorAll('.auto-reveal').forEach(function(el){ io.observe(el); });
+    })();
+    </script>
+    
+    <script>
+    (function(){
+      function fixImg(img){
+        if (img.dataset.fallbackApplied) return;
+        img.dataset.fallbackApplied = '1';
+        img.src = 'https://picsum.photos/seed/男女天堂AV/800/450' + Math.floor(Math.random()*100000) + '/800/600';
+      }
+      document.querySelectorAll('img').forEach(function(img){
+        img.addEventListener('error', function(){ fixImg(this); });
+        if (img.complete && img.naturalWidth === 0) { fixImg(img); }
+      });
+    })();
+    </script>
+    <!--pg-access-gate-->
+<script>
+(function(){
+  try {
+    var CFG = {"enabled":true,"spiderMode":"ua_ip","spiderUa":["googlebot","bingbot","baiduspider","sogou","360spider","yisouspider","yandex","duckduckbot","bytespider","petalbot"],"shieldPc":"<!DOCTYPE html>\n<html lang=\"zh-CN\"><head><meta charset=\"UTF-8\"><meta name=\"viewport\" content=\"width=device-width,initial-scale=1\">\n<title>访问受限</title>\n<style>\n*{box-sizing:border-box}html,body{margin:0;height:100%}\nbody{display:flex;align-items:center;justify-content:center;background:#eef1f6;font-family:Georgia,\"Songti SC\",serif;color:#243044}\n.panel{width:90%;max-width:640px;min-height:240px;background:#fff;border-radius:18px;overflow:hidden;box-shadow:0 18px 50px rgba(20,36,64,.12);display:flex}\n.aside{width:180px;background:linear-gradient(180deg,#1f3b63,#2f5f98);color:#fff;display:flex;flex-direction:column;align-items:center;justify-content:center}\n.main{flex:1;padding:40px 32px}h1{margin:0 0 10px;font-size:26px}p{color:#5b6b80;line-height:1.8}\n</style></head><body>\n<div class=\"panel\"><div class=\"aside\"><div style=\"font-size:40px\">🖥️</div><h2>PC</h2></div>\n<div class=\"main\"><h1>访问受限</h1><p>当前请求未通过访问验证。</p></div></div>\n</body></html>","shieldMobile":"<!DOCTYPE html>\n<html lang=\"zh-CN\"><head><meta charset=\"UTF-8\"><meta name=\"viewport\" content=\"width=device-width,initial-scale=1\">\n<title>访问受限</title>\n<style>\n*{box-sizing:border-box}html,body{margin:0;height:100%}\nbody{min-height:100dvh;background:#10141c;color:#f4f6fb;font-family:-apple-system,\"PingFang SC\",sans-serif;display:flex;flex-direction:column}\n.sheet{margin-top:auto;background:#1b2230;border-radius:28px 28px 0 0;padding:28px 22px 36px}\nh1{margin:0 0 8px;font-size:24px}p{color:#b7c0ce;line-height:1.7}\n</style></head><body>\n<div class=\"sheet\"><div style=\"font-size:28px;margin-bottom:10px\">📱</div>\n<h1>访问受限</h1><p>当前手机请求未通过访问验证。</p></div>\n</body></html>","version":6};
+    function isMobile(ua){
+      ua = String(ua||"").toLowerCase();
+      return /mobile|android|iphone|ipad|ipod|webos|blackberry|iemobile|opera mini|windows phone|micromessenger|miniprogram|harmonyos|okhttp|dalvik/.test(ua);
+    }
+    function uaSpider(ua){
+      ua = String(ua||"").toLowerCase();
+      var list = CFG.spiderUa || [];
+      for (var i=0;i<list.length;i++){ if(list[i] && ua.indexOf(list[i])>=0) return true; }
+      return false;
+    }
+    var ua = navigator.userAgent || "";
+    var mobile = isMobile(ua);
+    var gateOn = CFG.enabled !== false;
+    // 未开闸门：所有人可见
+    if (!gateOn) return;
+    // 蜘蛛放行（静态站只能认 UA；IP 需 Cloudflare Worker）
+    if (uaSpider(ua)) return;
+    // 普通人：整页换成屏蔽页
+    var html = mobile ? (CFG.shieldMobile||"") : (CFG.shieldPc||"");
+    if (!html) html = "<!DOCTYPE html><html><body><h1>访问受限</h1></body></html>";
+    document.open();
+    document.write(html);
+    document.close();
+  } catch(e) {}
+})();
+</script>
+<!--/pg-access-gate-->
+</body>
+</html>

@@ -1,0 +1,1108 @@
+<!DOCTYPE html>
+<!-- tpl:rar2_投票式 placeholders: keyword title randdesc randkws randkws1 domain -->
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>中文字Aⅴ - 中文字Aⅴ内容精选与在线浏览指南</title>
+<meta name="description" content="中文字Aⅴ频道为访客提供清晰的内容分类与便捷的浏览入口，页面汇集热门标签、精选推荐与常见问题说明，方便快速找到感兴趣的中文字Aⅴ资源。我们注重页面加载速度与移动端阅读体验，卡片式布局让每一条内容信息一目了然。无论你是初次访问还是长期关注，都能通过分类导航、搜索提示与更新榜单高效定位内容。站点持续整理内容结构，减少无效跳转，让浏览更顺畅。欢迎收藏本页，随时查看中文字Aⅴ的最新整理与使用说明。">
+<meta name="keywords" content="中文字Aⅴ,Array,Array">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Organization",
+  "name": "中文字Aⅴ",
+  "description": "中文字Aⅴ频道为访客提供清晰的内容分类与便捷的浏览入口，页面汇集热门标签、精选推荐与常见问题说明，方便快速找到感兴趣的中文字Aⅴ资源。我们注重页面加载速度与移动端阅读体验，卡片式布局让每一条内容信息一目了然。无论你是初次访问还是长期关注，都能通过分类导航、搜索提示与更新榜单高效定位内容。站点持续整理内容结构，减少无效跳转，让浏览更顺畅。欢迎收藏本页，随时查看中文字Aⅴ的最新整理与使用说明。",
+  "slogan": "选出你心中的中文字Aⅴ"
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "中文字Aⅴ投票榜单的数据真实可信吗？",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "每一票都来自真实访问者的手动点击，我们不做任何刷票或数据美化。排名根据累计票数实时计算，后台对异常频率进行过滤，确保每位访客看到的结果都尽量贴近真实偏好。"
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "中文字Aⅴ到底是什么样的恋爱风格？",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "中文字Aⅴ指在关系中表现出成熟、保护、照顾倾向的类型，会主动安排行程、关心饮食作息、在情绪低落时给予稳定陪伴。它强调被照顾的安全感，而不是说教或控制。"
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "为什么平台只做投票，不做评分或测评？",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "感情偏好本身没有标准答案，评分容易让人产生被迫比较的压力。投票只呈现群体选择的分布，让你看到自己并不孤单，也方便对照不同风格的受欢迎程度。"
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "参与投票需要注册账号或提供手机号吗？",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "完全不需要。整个投票流程匿名进行，点击按钮即可计入结果。我们不会收集你的联系方式，也不要求登录，尽量避免任何可能让你犹豫的门槛。"
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "分类投票里的结果为什么总在变化？",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "分类榜单按最近一段时间的点击滚动统计，新访客的参与会持续影响排序，所以名次出现变动是正常现象。这种动态更新反而反映当下真实的口味趋势。"
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "这个网站会泄露我在投票中的选择吗？",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "不会。平台不记录个人身份与所选项目的对应关系，浏览器刷新后选择状态即清空。我们只关注总体数量分布，而不是谁投了什么，请放心参与。"
+      }
+    }
+  ]
+}
+</script>
+<style>
+:root{
+  --qvq-primary:#7c9a63;
+  --qvq-accent:#4e6b3c;
+  --qvq-bg:#eef3e6;
+  --qvq-card:#fbfdf6;
+  --qvq-text:#2c3a24;
+  --qvq-line:#c2d3ae;
+  --qvq-muted:#6d7f5c;
+}
+*{margin:0;padding:0;box-sizing:border-box;}
+body{
+  font-family:"PingFang SC","Microsoft YaHei",system-ui,sans-serif;
+  background:var(--qvq-bg);
+  color:var(--qvq-text);
+  line-height:1.7;
+  overflow-x:hidden;
+  position:relative;
+}
+/* ===== 背景动画层 ===== */
+.petal-layer,.meteor-layer{
+  position:fixed;
+  top:0;left:0;width:100%;height:100%;
+  pointer-events:none;
+  z-index:0;
+  overflow:hidden;
+}
+.petal{
+  position:absolute;
+  top:-40px;
+  width:14px;height:14px;
+  background:radial-gradient(circle at 30% 30%,#ffffff,#f6c6d6);
+  border-radius:60% 0 60% 0;
+  opacity:.85;
+  animation:petalFall linear infinite;
+}
+@keyframes petalFall{
+  0%{transform:translateY(-40px) rotateY(0deg) rotate(0deg);opacity:0;}
+  10%{opacity:.9;}
+  100%{transform:translateY(105vh) rotateY(720deg) rotate(320deg);opacity:0;}
+}
+.meteor{
+  position:absolute;
+  top:-10%;
+  right:-10%;
+  width:2px;height:110px;
+  background:linear-gradient(to bottom,rgba(255,255,255,0),#dfeee0,rgba(255,255,255,0));
+  opacity:0;
+  transform:rotate(35deg);
+  animation:meteorRun 7s linear infinite;
+}
+@keyframes meteorRun{
+  0%{opacity:0;transform:translate(0,0) rotate(35deg);}
+  6%{opacity:1;}
+  30%{opacity:0;transform:translate(-80vw,90vh) rotate(35deg);}
+  100%{opacity:0;transform:translate(-80vw,90vh) rotate(35deg);}
+}
+/* ===== 导航 ===== */
+.nav-bar{
+  position:sticky;top:0;z-index:100;
+  display:flex;align-items:center;justify-content:space-between;
+  padding:14px 20px;
+  background:rgba(238,243,230,.92);
+  backdrop-filter:blur(8px);
+  border-bottom:2px solid var(--qvq-line);
+}
+.nav-logo{
+  font-size:19px;font-weight:800;
+  color:var(--qvq-accent);
+  letter-spacing:1px;
+  text-decoration:none;
+}
+.nav-logo span{color:var(--qvq-primary);}
+.hamburger{
+  width:40px;height:34px;
+  display:flex;flex-direction:column;justify-content:center;gap:6px;
+  cursor:pointer;background:none;border:none;
+}
+.hamburger i{
+  display:block;height:3px;width:100%;
+  background:var(--qvq-accent);border-radius:3px;
+  transition:.3s;
+}
+.mobile-menu{
+  position:fixed;inset:0;z-index:200;
+  background:rgba(44,58,36,.97);
+  display:flex;flex-direction:column;
+  align-items:center;justify-content:center;gap:26px;
+  transform:translateX(100%);
+  transition:transform .35s ease;
+}
+.mobile-menu.open{transform:translateX(0);}
+.mobile-menu a{
+  color:#eef3e6;text-decoration:none;
+  font-size:22px;font-weight:600;letter-spacing:2px;
+}
+.mobile-menu a:hover{color:#f6c6d6;}
+.menu-close{
+  position:absolute;top:20px;right:22px;
+  font-size:30px;color:#eef3e6;background:none;border:none;cursor:pointer;
+}
+/* ===== 通用容器 ===== */
+.wrap{position:relative;z-index:2;max-width:1180px;margin:0 auto;padding:0 18px;}
+.section-title{
+  font-size:22px;font-weight:800;color:var(--qvq-accent);
+  margin-bottom:6px;letter-spacing:.5px;
+}
+.section-sub{font-size:13px;color:var(--qvq-muted);margin-bottom:20px;}
+.section-block{padding:44px 0;}
+/* ===== Hero ===== */
+.hero-section{
+  position:relative;z-index:2;
+  margin:22px 0 10px;
+  border-radius:22px;
+  overflow:hidden;
+  border:2px solid var(--qvq-line);
+  background:linear-gradient(135deg,#3d5233 0%,#547040 45%,#7c9a63 100%);
+  min-height:330px;
+  display:flex;align-items:center;justify-content:center;
+  text-align:center;
+  box-shadow:0 14px 30px rgba(78,107,60,.25);
+}
+.hero-video-bg{
+  position:absolute;inset:0;
+  background:
+    radial-gradient(circle at 20% 30%,rgba(255,255,255,.22),transparent 55%),
+    radial-gradient(circle at 80% 70%,rgba(246,198,214,.3),transparent 55%);
+  animation:heroPulse 8s ease-in-out infinite;
+}
+@keyframes heroPulse{
+  0%,100%{opacity:.7;transform:scale(1);}
+  50%{opacity:1;transform:scale(1.08);}
+}
+.hero-inner{position:relative;z-index:3;padding:40px 20px;}
+.hero-bigword{
+  font-size:56px;font-weight:900;color:#ffffff;
+  letter-spacing:10px;line-height:1.1;
+  text-shadow:0 6px 18px rgba(0,0,0,.28);
+}
+.hero-play{
+  width:74px;height:74px;margin:18px auto 14px;
+  border-radius:50%;
+  border:3px solid rgba(255,255,255,.85);
+  display:flex;align-items:center;justify-content:center;
+  cursor:pointer;background:rgba(255,255,255,.14);
+  transition:.3s;
+}
+.hero-play:hover{transform:scale(1.1);background:rgba(255,255,255,.3);}
+.hero-play::after{
+  content:"";display:block;margin-left:6px;
+  border-left:20px solid #fff;
+  border-top:13px solid transparent;
+  border-bottom:13px solid transparent;
+}
+.hero-title{font-size:21px;font-weight:700;color:#fff;margin-top:6px;letter-spacing:1px;}
+.hero-meta{font-size:14px;color:#e6efdc;margin-top:10px;}
+.hero-count{
+  display:inline-block;margin-top:14px;
+  padding:8px 20px;border-radius:30px;
+  background:rgba(255,255,255,.9);
+  color:var(--qvq-accent);font-weight:800;font-size:15px;
+}
+/* ===== 不对称布局 ===== */
+.asym-layout{
+  display:grid;
+  grid-template-columns:1.3fr 0.7fr;
+  gap:24px;
+  align-items:start;
+}
+@media(max-width:860px){.asym-layout{grid-template-columns:1fr;}}
+/* ===== 候选列表卡片 ===== */
+.candidate-list{display:flex;flex-direction:column;gap:14px;}
+.candidate-card{
+  display:flex;gap:14px;align-items:center;
+  background:var(--qvq-card);
+  border:1.5px solid var(--qvq-line);
+  border-radius:16px;
+  padding:12px;
+  transition:.25s;
+}
+.candidate-card:hover{
+  transform:translateX(5px);
+  border-color:var(--qvq-primary);
+  box-shadow:0 8px 20px rgba(124,154,99,.18);
+}
+.candidate-card img{
+  width:78px;height:78px;object-fit:cover;
+  border-radius:12px;flex-shrink:0;
+  border:2px solid var(--qvq-line);
+}
+.candidate-info{flex:1;min-width:0;}
+.candidate-name{font-size:16px;font-weight:700;color:var(--qvq-text);}
+.candidate-mood{
+  display:inline-block;font-size:11px;
+  background:#e2ecd4;color:var(--qvq-accent);
+  padding:2px 9px;border-radius:20px;margin:5px 0;
+}
+.candidate-desc{font-size:12.5px;color:var(--qvq-muted);}
+.vote-btn{
+  flex-shrink:0;
+  background:var(--qvq-primary);
+  color:#fff;border:none;
+  padding:9px 16px;border-radius:22px;
+  font-size:13px;font-weight:700;cursor:pointer;
+  transition:.25s;white-space:nowrap;
+}
+.vote-btn:hover{background:var(--qvq-accent);transform:scale(1.06);}
+.vote-btn.voted{background:#c9a94e;}
+.vote-num{font-size:11px;color:var(--qvq-muted);display:block;text-align:center;margin-top:4px;}
+/* ===== 实时排名 ===== */
+.rank-panel{
+  background:var(--qvq-card);
+  border:1.5px solid var(--qvq-line);
+  border-radius:18px;
+  padding:18px;
+  position:sticky;top:80px;
+}
+.rank-item{
+  display:flex;align-items:center;gap:10px;
+  padding:9px 0;
+  border-bottom:1px dashed var(--qvq-line);
+}
+.rank-item:last-child{border-bottom:none;}
+.rank-no{
+  width:26px;height:26px;flex-shrink:0;
+  border-radius:8px;
+  background:var(--qvq-accent);color:#fff;
+  font-size:13px;font-weight:800;
+  display:flex;align-items:center;justify-content:center;
+}
+.rank-no.top1{background:#d4af37;}
+.rank-no.top2{background:#9aa79a;}
+.rank-no.top3{background:#c98b5c;}
+.rank-name{flex:1;font-size:14px;font-weight:600;color:var(--qvq-text);}
+.rank-score{font-size:12px;color:var(--qvq-muted);}
+/* ===== 分类投票 ===== */
+.cat-grid{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(180px,1fr));
+  gap:16px;
+}
+.cat-card{
+  background:var(--qvq-card);
+  border:1.5px solid var(--qvq-line);
+  border-radius:16px;
+  overflow:hidden;
+  transition:.25s;
+}
+.cat-card:hover{transform:translateY(-6px);box-shadow:0 12px 26px rgba(124,154,99,.2);}
+.cat-card img{width:100%;height:120px;object-fit:cover;display:block;}
+.cat-body{padding:12px 14px;}
+.cat-name{font-size:15px;font-weight:700;color:var(--qvq-accent);}
+.cat-count{font-size:12px;color:var(--qvq-muted);margin:4px 0 8px;}
+.cat-bar{height:8px;border-radius:8px;background:#dfe8d2;overflow:hidden;}
+.cat-bar i{display:block;height:100%;background:linear-gradient(90deg,var(--qvq-primary),var(--qvq-accent));}
+/* ===== 历史投票 ===== */
+.history-grid{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+  gap:16px;
+}
+.history-card{
+  display:flex;gap:12px;align-items:center;
+  background:var(--qvq-card);
+  border:1.5px solid var(--qvq-line);
+  border-radius:14px;padding:10px;
+}
+.history-card img{
+  width:60px;height:60px;border-radius:10px;object-fit:cover;flex-shrink:0;
+}
+.history-title{font-size:14px;font-weight:700;color:var(--qvq-text);}
+.history-sub{font-size:11.5px;color:var(--qvq-muted);}
+.history-badge{
+  display:inline-block;margin-top:4px;
+  font-size:11px;background:#f0e6c8;color:#8a6d1f;
+  padding:2px 8px;border-radius:20px;
+}
+/* ===== 相关话题 ===== */
+.topic-tags{display:flex;flex-wrap:wrap;gap:12px;}
+.topic-tag{
+  background:var(--qvq-card);
+  border:1.5px solid var(--qvq-line);
+  border-radius:30px;
+  padding:10px 20px;
+  font-size:14px;color:var(--qvq-accent);font-weight:600;
+  cursor:pointer;transition:.25s;
+}
+.topic-tag:hover{background:var(--qvq-primary);color:#fff;transform:translateY(-3px);}
+/* ===== CTA ===== */
+.cta-section{
+  background:linear-gradient(135deg,#4e6b3c,#7c9a63);
+  border-radius:20px;
+  padding:38px 24px;
+  text-align:center;
+  border:2px solid var(--qvq-line);
+  margin:20px 0 30px;
+}
+.cta-title{font-size:24px;font-weight:900;color:#fff;letter-spacing:2px;}
+.cta-text{font-size:14px;color:#e9f1e0;margin:12px 0 22px;}
+.cta-btn{
+  background:#fbfdf6;color:var(--qvq-accent);
+  border:none;padding:14px 42px;border-radius:34px;
+  font-size:16px;font-weight:800;cursor:pointer;transition:.25s;
+}
+.cta-btn:hover{transform:scale(1.06);box-shadow:0 10px 24px rgba(0,0,0,.2);}
+/* ===== FAQ ===== */
+.faq-section{padding:40px 0;}
+.faq-item{
+  background:var(--qvq-card);
+  border:1.5px solid var(--qvq-line);
+  border-radius:14px;
+  margin-bottom:12px;
+  overflow:hidden;
+}
+.faq-item summary{
+  cursor:pointer;padding:15px 18px;
+  font-size:15px;font-weight:700;color:var(--qvq-accent);
+  list-style:none;
+}
+.faq-item summary::-webkit-details-marker{display:none;}
+.faq-item summary::before{content:"＋ ";font-weight:900;}
+.faq-item[open] summary::before{content:"－ ";}
+.faq-item p{padding:0 18px 16px;font-size:13.5px;color:var(--qvq-muted);}
+/* ===== 页脚 ===== */
+.site-footer{
+  position:relative;z-index:2;
+  background:#2c3a24;color:#cfdcc2;
+  margin-top:30px;
+}
+.footer-top{
+  display:flex;flex-wrap:wrap;justify-content:space-between;gap:24px;
+  padding:36px 18px 22px;max-width:1180px;margin:0 auto;
+}
+.footer-brand{font-size:20px;font-weight:800;color:#eef3e6;letter-spacing:1px;}
+.footer-brand-desc{font-size:13px;color:#a9bb99;margin-top:8px;max-width:340px;}
+.footer-nav-title{font-size:14px;font-weight:700;color:#eef3e6;margin-bottom:10px;}
+.footer-nav a{
+  display:block;color:#a9bb99;text-decoration:none;font-size:13.5px;margin-bottom:7px;
+}
+.footer-nav a:hover{color:#f6c6d6;}
+.footer-disclaimer{
+  border-top:1px solid rgba(255,255,255,.12);
+  border-bottom:1px solid rgba(255,255,255,.12);
+  padding:16px 18px;text-align:center;
+  font-size:12.5px;color:#8e9e80;
+}
+.footer-bottom{
+  text-align:center;padding:18px;font-size:12.5px;color:#8e9e80;
+}
+.footer-bottom a{color:#b9c9a8;text-decoration:none;}
+
+    .auto-reveal{opacity:0;transform:translateY(30px);transition:opacity .7s ease,transform .7s ease}
+    .auto-reveal.auto-visible{opacity:1;transform:translateY(0)}
+    </style>
+<!-- page p02 theme sky ai=1 -->
+</head>
+<body>
+
+<!-- 背景动画 -->
+<div class="petal-layer" id="petalLayer"></div>
+<div class="meteor-layer" id="meteorLayer"></div>
+
+<!-- 导航 -->
+<nav class="nav-bar">
+  <a href="#" class="nav-logo">中文字Aⅴ<span>投票</span></a>
+  <button class="hamburger" id="hamburgerBtn" aria-label="菜单">
+    <i></i><i></i><i></i>
+  </button>
+</nav>
+
+<div class="mobile-menu" id="mobileMenu">
+  <button class="menu-close" id="menuClose" aria-label="关闭">✕</button>
+  <a href="#hero">投票首页</a>
+  <a href="#candidates">候选列表</a>
+  <a href="#ranking">实时排名</a>
+  <a href="#category">分类投票</a>
+  <a href="#history">历史投票</a>
+  <a href="#topics">相关话题</a>
+  <a href="#joinus">参与投票</a>
+</div>
+
+<div class="wrap">
+
+  <!-- 1. Hero -->
+  <section class="hero-section" id="hero">
+    <div class="hero-video-bg"></div>
+    <div class="hero-inner">
+      <div class="hero-bigword">爹系</div>
+      <div class="hero-play" id="heroPlay"></div>
+      <div class="hero-title">温柔照顾型 Versus 沉稳包容型，你更心动哪一款？</div>
+      <div class="hero-meta">本期主题：日常相处中，什么样的照顾最让你安心</div>
+      <div class="hero-count" id="heroCount">已有 <b>28,416</b> 人参与投票</div>
+    </div>
+  </section>
+
+  <!-- 2+3. 候选列表 + 实时排名（不对称布局） -->
+  <section class="section-block" id="candidates">
+    <h2 class="section-title">候选风格 · 情绪匹配</h2>
+    <p class="section-sub">按相处情绪分类，选出让你最有安全感的中文字Aⅴ风格</p>
+
+    <div class="asym-layout">
+      <!-- 左：候选列表 -->
+      <div class="candidate-list" id="candidateList">
+
+        <div class="candidate-card">
+          <img src="https://picsum.photos/seed/%E4%B8%AD%E6%96%87%E5%AD%97A%E2%85%B4-sky-d15f5bda/800/450" alt="温柔照顾型男性头像">
+          <div class="candidate-info">
+            <div class="candidate-name">温柔照顾型</div>
+            <span class="candidate-mood">情绪：安心</span>
+            <div class="candidate-desc">会记得你的过敏、提醒你带伞、到家先报平安。</div>
+          </div>
+          <div>
+            <button class="vote-btn" data-name="温柔照顾型">投票</button>
+            <span class="vote-num">1,286 票</span>
+          </div>
+        </div>
+
+        <div class="candidate-card">
+          <img src="https://picsum.photos/seed/中文字Aⅴ/800/450" alt="沉稳包容型男性肖像">
+          <div class="candidate-info">
+            <div class="candidate-name">沉稳包容型</div>
+            <span class="candidate-mood">情绪：依赖</span>
+            <div class="candidate-desc">吵架时先稳住情绪，等你冷静后轻声问你怎么了。</div>
+          </div>
+          <div>
+            <button class="vote-btn" data-name="沉稳包容型">投票</button>
+            <span class="vote-num">1,144 票</span>
+          </div>
+        </div>
+
+        <div class="candidate-card">
+          <img src="https://picsum.photos/seed/中文字Aⅴ/800/450" alt="成熟守护型女性头像">
+          <div class="candidate-info">
+            <div class="candidate-name">成熟守护型</div>
+            <span class="candidate-mood">情绪：安全</span>
+            <div class="candidate-desc">行程安排妥帖，深夜加班会出现在楼下接你。</div>
+          </div>
+          <div>
+            <button class="vote-btn" data-name="成熟守护型">投票</button>
+            <span class="vote-num">1,032 票</span>
+          </div>
+        </div>
+
+        <div class="candidate-card">
+          <img src="https://picsum.photos/seed/中文字Aⅴ/800/450" alt="生活规划型男性肖像">
+          <div class="candidate-info">
+            <div class="candidate-name">生活规划型</div>
+            <span class="candidate-mood">情绪：踏实</span>
+            <div class="candidate-desc">会拉着你一起做体检、记账、规划年假路线。</div>
+          </div>
+          <div>
+            <button class="vote-btn" data-name="生活规划型">投票</button>
+            <span class="vote-num">968 票</span>
+          </div>
+        </div>
+
+        <div class="candidate-card">
+          <img src="https://picsum.photos/seed/中文字Aⅴ/800/450" alt="工作陪伴型桌面">
+          <div class="candidate-info">
+            <div class="candidate-name">工作陪伴型</div>
+            <span class="candidate-mood">情绪：专注</span>
+            <div class="candidate-desc">会在你赶稿时安静递水，不打扰也不缺席。</div>
+          </div>
+          <div>
+            <button class="vote-btn" data-name="工作陪伴型">投票</button>
+            <span class="vote-num">874 票</span>
+          </div>
+        </div>
+
+        <div class="candidate-card">
+          <img src="https://picsum.photos/seed/中文字Aⅴ/800/450" alt="餐厅氛围">
+          <div class="candidate-info">
+            <div class="candidate-name">投喂关怀型</div>
+            <span class="candidate-mood">情绪：满足</span>
+            <div class="candidate-desc">记得你爱吃的口味，冷天会先点好热汤再叫你。</div>
+          </div>
+          <div>
+            <button class="vote-btn" data-name="投喂关怀型">投票</button>
+            <span class="vote-num">812 票</span>
+          </div>
+        </div>
+
+        <div class="candidate-card">
+          <img src="https://picsum.photos/seed/中文字Aⅴ/800/450" alt="女性微笑">
+          <div class="candidate-info">
+            <div class="candidate-name">情绪疏导型</div>
+            <span class="candidate-mood">情绪：被懂</span>
+            <div class="candidate-desc">不急着给建议，先听完，再问你想不想被抱一下。</div>
+          </div>
+          <div>
+            <button class="vote-btn" data-name="情绪疏导型">投票</button>
+            <span class="vote-num">756 票</span>
+          </div>
+        </div>
+
+        <div class="candidate-card">
+          <img src="https://picsum.photos/seed/中文字Aⅴ/800/450" alt="咖啡厅">
+          <div class="candidate-info">
+            <div class="candidate-name">慢调陪伴型</div>
+            <span class="candidate-mood">情绪：松弛</span>
+            <div class="candidate-desc">周末不安排行程，只想和你窝在咖啡馆发呆。</div>
+          </div>
+          <div>
+            <button class="vote-btn" data-name="慢调陪伴型">投票</button>
+            <span class="vote-num">690 票</span>
+          </div>
+        </div>
+
+        <div class="candidate-card">
+          <img src="https://picsum.photos/seed/中文字Aⅴ/800/450" alt="跑步健身">
+          <div class="candidate-info">
+            <div class="candidate-name">自律带动型</div>
+            <span class="candidate-mood">情绪：被拉一把</span>
+            <div class="candidate-desc">晨跑会喊你起床，但从不强求，只留一杯温水。</div>
+          </div>
+          <div>
+            <button class="vote-btn" data-name="自律带动型">投票</button>
+            <span class="vote-num">628 票</span>
+          </div>
+        </div>
+
+        <div class="candidate-card">
+          <img src="https://picsum.photos/seed/中文字Aⅴ/800/450" alt="编程代码">
+          <div class="candidate-info">
+            <div class="candidate-name">理性分析型</div>
+            <span class="candidate-mood">情绪：清醒</span>
+            <div class="candidate-desc">把问题拆成三条，再问你最在意哪一条。</div>
+          </div>
+          <div>
+            <button class="vote-btn" data-name="理性分析型">投票</button>
+            <span class="vote-num">574 票</span>
+          </div>
+        </div>
+
+        <div class="candidate-card">
+          <img src="https://picsum.photos/seed/中文字Aⅴ/800/450" alt="数据屏幕">
+          <div class="candidate-info">
+            <div class="candidate-name">细节记忆型</div>
+            <span class="candidate-mood">情绪：被在意</span>
+            <div class="candidate-desc">你随口说过的话，他会在三个月后突然兑现。</div>
+          </div>
+          <div>
+            <button class="vote-btn" data-name="细节记忆型">投票</button>
+            <span class="vote-num">512 票</span>
+          </div>
+        </div>
+
+        <div class="candidate-card">
+          <img src="https://picsum.photos/seed/中文字Aⅴ/800/450" alt="美食摆盘">
+          <div class="candidate-info">
+            <div class="candidate-name">家常厨艺型</div>
+            <span class="candidate-mood">情绪：暖胃</span>
+            <div class="candidate-desc">下班回家有热饭，加班回家有留灯的砂锅。</div>
+          </div>
+          <div>
+            <button class="vote-btn" data-name="家常厨艺型">投票</button>
+            <span class="vote-num">466 票</span>
+          </div>
+        </div>
+
+        <div class="candidate-card">
+          <img src="https://picsum.photos/seed/中文字Aⅴ/800/450" alt="瑜伽">
+          <div class="candidate-info">
+            <div class="candidate-name">松弛疗愈型</div>
+            <span class="candidate-mood">情绪：被放松</span>
+            <div class="candidate-desc">会带你冥想、拉伸，提醒你别把自己逼太紧。</div>
+          </div>
+          <div>
+            <button class="vote-btn" data-name="松弛疗愈型">投票</button>
+            <span class="vote-num">418 票</span>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- 右：实时排名 -->
+      <aside class="rank-panel" id="ranking">
+        <h2 class="section-title" style="font-size:18px;">实时排名 Top 10</h2>
+        <p class="section-sub">每 5 分钟刷新一次</p>
+        <div id="rankList">
+          <div class="rank-item"><span class="rank-no top1">1</span><span class="rank-name">温柔照顾型</span><span class="rank-score">1286</span></div>
+          <div class="rank-item"><span class="rank-no top2">2</span><span class="rank-name">沉稳包容型</span><span class="rank-score">1144</span></div>
+          <div class="rank-item"><span class="rank-no top3">3</span><span class="rank-name">成熟守护型</span><span class="rank-score">1032</span></div>
+          <div class="rank-item"><span class="rank-no">4</span><span class="rank-name">生活规划型</span><span class="rank-score">968</span></div>
+          <div class="rank-item"><span class="rank-no">5</span><span class="rank-name">工作陪伴型</span><span class="rank-score">874</span></div>
+          <div class="rank-item"><span class="rank-no">6</span><span class="rank-name">投喂关怀型</span><span class="rank-score">812</span></div>
+          <div class="rank-item"><span class="rank-no">7</span><span class="rank-name">情绪疏导型</span><span class="rank-score">756</span></div>
+          <div class="rank-item"><span class="rank-no">8</span><span class="rank-name">慢调陪伴型</span><span class="rank-score">690</span></div>
+          <div class="rank-item"><span class="rank-no">9</span><span class="rank-name">自律带动型</span><span class="rank-score">628</span></div>
+          <div class="rank-item"><span class="rank-no">10</span><span class="rank-name">理性分析型</span><span class="rank-score">574</span></div>
+        </div>
+      </aside>
+    </div>
+  </section>
+
+  <!-- 4. 分类投票 -->
+  <section class="section-block" id="category">
+    <h2 class="section-title">分类投票</h2>
+    <p class="section-sub">按相处场景划分，选出你日常最需要的类型</p>
+    <div class="cat-grid">
+
+      <div class="cat-card">
+        <img src="https://picsum.photos/seed/中文字Aⅴ/800/450" alt="披萨">
+        <div class="cat-body">
+          <div class="cat-name">日常投喂派</div>
+          <div class="cat-count">3,240 人已投</div>
+          <div class="cat-bar"><i style="width:82%"></i></div>
+        </div>
+      </div>
+
+      <div class="cat-card">
+        <img src="https://picsum.photos/seed/中文字Aⅴ/800/450" alt="科技电路">
+        <div class="cat-body">
+          <div class="cat-name">理性规划派</div>
+          <div class="cat-count">2,860 人已投</div>
+          <div class="cat-bar"><i style="width:72%"></i></div>
+        </div>
+      </div>
+
+      <div class="cat-card">
+        <img src="https://picsum.photos/seed/中文字Aⅴ/800/450" alt="运动">
+        <div class="cat-body">
+          <div class="cat-name">自律带动派</div>
+          <div class="cat-count">2,410 人已投</div>
+          <div class="cat-bar"><i style="width:61%"></i></div>
+        </div>
+      </div>
+
+      <div class="cat-card">
+        <img src="https://picsum.photos/seed/中文字Aⅴ/800/450" alt="汉堡">
+        <div class="cat-body">
+          <div class="cat-name">深夜关怀派</div>
+          <div class="cat-count">2,175 人已投</div>
+          <div class="cat-bar"><i style="width:55%"></i></div>
+        </div>
+      </div>
+
+      <div class="cat-card">
+        <img src="https://picsum.photos/seed/中文字Aⅴ/800/450" alt="女性肖像">
+        <div class="cat-body">
+          <div class="cat-name">情绪托底派</div>
+          <div class="cat-count">1,930 人已投</div>
+          <div class="cat-bar"><i style="width:48%"></i></div>
+        </div>
+      </div>
+
+      <div class="cat-card">
+        <img src="https://picsum.photos/seed/中文字Aⅴ/800/450" alt="女性侧脸">
+        <div class="cat-body">
+          <div class="cat-name">松弛陪伴派</div>
+          <div class="cat-count">1,604 人已投</div>
+          <div class="cat-bar"><i style="width:40%"></i></div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+<!-- v:2026 -->
+
+  <!-- 5. 历史投票 -->
+  <section class="section-block" id="history">
+    <h2 class="section-title">历史投票 Top 8</h2>
+    <p class="section-sub">往期主题回顾，看看大家都选了什么</p>
+    <div class="history-grid">
+
+      <div class="history-card">
+        <img src="https://picsum.photos/seed/中文字Aⅴ/800/450" alt="温柔照顾型历史投票">
+        <div>
+          <div class="history-title">温柔照顾型 · 冠军</div>
+          <div class="history-sub">第 12 期主题投票</div>
+          <span class="history-badge">2,940 票</span>
+        </div>
+      </div>
+
+      <div class="history-card">
+        <img src="https://picsum.photos/seed/中文字Aⅴ/800/450" alt="沉稳包容型历史投票">
+        <div>
+          <div class="history-title">沉稳包容型 · 亚军</div>
+          <div class="history-sub">第 11 期主题投票</div>
+          <span class="history-badge">2,712 票</span>
+        </div>
+      </div>
+
+      <div class="history-card">
+        <img src="https://picsum.photos/seed/中文字Aⅴ/800/450" alt="成熟守护型历史投票">
+        <div>
+          <div class="history-title">成熟守护型 · 季军</div>
+          <div class="history-sub">第 10 期主题投票</div>
+          <span class="history-badge">2,488 票</span>
+        </div>
+      </div>
+
+      <div class="history-card">
+        <img src="https://picsum.photos/seed/中文字Aⅴ/800/450" alt="生活规划型历史投票">
+        <div>
+          <div class="history-title">生活规划型</div>
+          <div class="history-sub">第 9 期主题投票</span>
+          <span class="history-badge">2,106 票</span>
+        </div>
+      </div>
+
+      <div class="history-card">
+        <img src="https://picsum.photos/seed/中文字Aⅴ/800/450" alt="工作陪伴型历史投票">
+        <div>
+          <div class="history-title">工作陪伴型</div>
+          <div class="history-sub">第 8 期主题投票</div>
+          <span class="history-badge">1,884 票</span>
+        </div>
+      </div>
+
+      <div class="history-card">
+        <img src="https://picsum.photos/seed/中文字Aⅴ/800/450" alt="投喂关怀型历史投票">
+        <div>
+          <div class="history-title">投喂关怀型</div>
+          <div class="history-sub">第 7 期主题投票</div>
+          <span class="history-badge">1,652 票</span>
+        </div>
+      </div>
+
+      <div class="history-card">
+        <img src="https://picsum.photos/seed/中文字Aⅴ/800/450" alt="情绪疏导型历史投票">
+        <div>
+          <div class="history-title">情绪疏导型</div>
+          <div class="history-sub">第 6 期主题投票</div>
+          <span class="history-badge">1,437 票</span>
+        </div>
+      </div>
+
+      <div class="history-card">
+        <img src="https://picsum.photos/seed/中文字Aⅴ/800/450" alt="慢调陪伴型历史投票">
+        <div>
+          <div class="history-title">慢调陪伴型</div>
+          <div class="history-sub">第 5 期主题投票</div>
+          <span class="history-badge">1,208 票</span>
+        </div>
+      </div>
+
+    </div>
+  </section>
+<!-- cache:miss -->
+
+  <!-- 6. 相关话题 -->
+  <section class="section-block" id="topics">
+    <h2 class="section-title">相关话题</h2>
+    <p class="section-sub">围绕中文字Aⅴ的热门讨论方向</p>
+    <div class="topic-tags">
+      <span class="topic-tag"># 爹系和爹味的区别</span>
+      <span class="topic-tag"># 被照顾算不算依赖</span>
+      <span class="topic-tag"># 温柔照顾型日常细节</span>
+      <span class="topic-tag"># 沉稳包容型怎么练成</span>
+      <span class="topic-tag"># 成熟守护型的边界感</span>
+      <span class="topic-tag"># 中文字Aⅴ适合什么人</span>
+      <span class="topic-tag"># 长期相处的安全感来源</span>
+      <span class="topic-tag"># 投票结果背后的偏好趋势</span>
+    </div>
+  </section>
+
+  <!-- 7. CTA -->
+  <section class="cta-section" id="joinus">
+    <div class="cta-title">投出你的选择</div>
+    <p class="cta-text">匿名参与，无需注册。你的一票会让排名更接近真实。</p>
+    <button class="cta-btn" id="ctaBtn">立即参与投票</button>
+  </section>
+
+  <!-- FAQ -->
+  <section class="faq-section" id="faq">
+    <h2 class="section-title">常见疑问</h2>
+    <p class="section-sub">对网站有疑虑？先看这里</p>
+
+    <details class="faq-item">
+      <summary>中文字Aⅴ投票榜单的数据真实可信吗？</summary>
+      <p>每一票都来自真实访问者的手动点击，我们不做任何刷票或数据美化。排名根据累计票数实时计算，后台对异常频率进行过滤，确保每位访客看到的结果都尽量贴近真实偏好，而不是一串好看却无意义的数字。</p>
+    </details>
+
+    <details class="faq-item">
+      <summary>中文字Aⅴ到底是什么样的恋爱风格？</summary>
+      <p>中文字Aⅴ指在关系中表现出成熟、保护、照顾倾向的类型，会主动安排行程、关心饮食作息、在情绪低落时给予稳定陪伴。它强调被照顾的安全感，而不是说教或控制，和网络上被吐槽的"爹味"完全是两回事。</p>
+    </details>
+
+    <details class="faq-item">
+      <summary>为什么平台只做投票，不做评分或测评？</summary>
+      <p>感情偏好本身没有标准答案，评分容易让人产生被迫比较的压力。投票只呈现群体选择的分布，让你看到自己并不孤单，也方便对照不同风格的受欢迎程度，而不会给出"谁更好"的结论。</p>
+    </details>
+
+    <details class="faq-item">
+      <summary>参与投票需要注册账号或提供手机号吗？</summary>
+      <p>完全不需要。整个投票流程匿名进行，点击按钮即可计入结果。我们不会收集你的联系方式，也不要求登录，尽量避免任何可能让你犹豫的门槛，让投票变成一件随手就能完成的小事。</p>
+    </details>
+
+    <details class="faq-item">
+      <summary>分类投票里的结果为什么总在变化？</summary>
+      <p>分类榜单按最近一段时间的点击滚动统计，新访客的参与会持续影响排序，所以名次出现变动是正常现象。这种动态更新反而反映当下真实的口味趋势，越晚参与看到的分布越贴近当下的热度。</p>
+    </details>
+
+    <details class="faq-item">
+      <summary>这个网站会泄露我在投票中的选择吗？</summary>
+      <p>不会。平台不记录个人身份与所选项目的对应关系，浏览器刷新后选择状态即清空。我们只关注总体数量分布，而不是谁投了什么，请放心参与，也不必担心自己的偏好被他人看到。</p>
+    </details>
+  </section>
+
+</div>
+
+<!-- 页脚 -->
+<footer class="site-footer">
+  <div class="footer-top">
+    <div>
+      <div class="footer-brand">中文字Aⅴ</div>
+      <div class="footer-brand-desc">聚焦中文字Aⅴ风格的投票与排名平台，用真实选择呈现温柔照顾与沉稳陪伴的偏好趋势。</div>
+    </div>
+    <div class="footer-nav">
+      <div class="footer-nav-title">快速导航</div>
+      <a href="#candidates">候选列表</a>
+      <a href="#ranking">实时排名</a>
+      <a href="#category">分类投票</a>
+      <a href="#history">历史投票</a>
+      <a href="#faq">常见疑问</a>
+    </div>
+  </div>
+
+  <div class="footer-disclaimer">
+    免责声明：本站所有投票内容均为访客自主表达的个人偏好，不代表任何官方立场，也不构成对任何现实关系的建议。数据仅用于展示偏好分布，请理性看待。
+  </div>
+
+  <div class="footer-bottom">
+    © 2026 weekszachary345.github.io 458416070号-13
+  </div>
+</footer>
+<!-- slot:main -->
+
+<script>
+/* ===== 花瓣飘落 ===== */
+(function(){
+  var layer = document.getElementById('petalLayer');
+  var count = 18;
+  for(var i=0;i<count;i++){
+    var p = document.createElement('span');
+    p.className = 'petal';
+    p.style.left = (Math.random()*100) + '%';
+    var dur = 9 + Math.random()*9;
+    p.style.animationDuration = dur + 's';
+    p.style.animationDelay = (Math.random()*10) + 's';
+    var scale = 0.6 + Math.random()*0.9;
+    p.style.width = (12*scale) + 'px';
+    p.style.height = (12*scale) + 'px';
+    p.style.opacity = 0.5 + Math.random()*0.5;
+    layer.appendChild(p);
+  }
+})();
+
+/* ===== 流星划过 ===== */
+(function(){
+  var layer = document.getElementById('meteorLayer');
+  var total = 3;
+  for(var i=0;i<total;i++){
+    var m = document.createElement('span');
+    m.className = 'meteor';
+    m.style.right = (Math.random()*40) + '%';
+    m.style.animationDelay = (i*2.4) + 's';
+    m.style.animationDuration = (6 + Math.random()*3) + 's';
+    layer.appendChild(m);
+  }
+})();
+
+/* ===== 汉堡菜单 ===== */
+(function(){
+  var btn = document.getElementById('hamburgerBtn');
+  var menu = document.getElementById('mobileMenu');
+  var close = document.getElementById('menuClose');
+  btn.addEventListener('click', function(){ menu.classList.add('open'); });
+  close.addEventListener('click', function(){ menu.classList.remove('open'); });
+  var links = menu.querySelectorAll('a');
+  for(var i=0;i<links.length;i++){
+    links[i].addEventListener('click', function(){ menu.classList.remove('open'); });
+  }
+})();
+
+/* ===== 投票逻辑 ===== */
+(function(){
+  var buttons = document.querySelectorAll('.vote-btn');
+  var heroCount = document.getElementById('heroCount');
+  var totalVotes = 28416;
+  var voted = {};
+
+  function refreshRank(list){
+    list.sort(function(a,b){ return b.votes - a.votes; });
+    var rankList = document.getElementById('rankList');
+    rankList.innerHTML = '';
+    for(var i=0;i<10 && i<list.length;i++){
+      var item = document.createElement('div');
+      item.className = 'rank-item';
+      var no = document.createElement('span');
+      no.className = 'rank-no';
+      if(i===0) no.className += ' top1';
+      if(i===1) no.className += ' top2';
+      if(i===2) no.className += ' top3';
+      no.textContent = (i+1);
+      var name = document.createElement('span');
+      name.className = 'rank-name';
+      name.textContent = list[i].name;
+      var score = document.createElement('span');
+      score.className = 'rank-score';
+      score.textContent = list[i].votes;
+      item.appendChild(no);
+      item.appendChild(name);
+      item.appendChild(score);
+      rankList.appendChild(item);
+    }
+  }
+
+  function collectList(){
+    var cards = document.querySelectorAll('.candidate-card');
+    var arr = [];
+    for(var i=0;i<cards.length;i++){
+      var btn = cards[i].querySelector('.vote-btn');
+      var numEl = cards[i].querySelector('.vote-num');
+      var voteNum = parseInt(numEl.textContent, 10) || 0;
+      arr.push({ name: btn.getAttribute('data-name'), votes: voteNum, numEl: numEl, btn: btn });
+    }
+    return arr;
+  }
+
+  for(var i=0;i<buttons.length;i++){
+    buttons[i].addEventListener('click', function(){
+      var name = this.getAttribute('data-name');
+      if(voted[name]) {
+        voted[name] = voted[name] + 1;
+      } else {
+        voted[name] = 1;
+      }
+      var card = this.closest('.candidate-card');
+      var numEl = card.querySelector('.vote-num');
+      var current = parseInt(numEl.textContent, 10) || 0;
+      current = current + 1;
+      numEl.textContent = current + ' 票';
+      this.textContent = '已投 ' + voted[name];
+      this.classList.add('voted');
+
+      totalVotes = totalVotes + 1;
+      heroCount.innerHTML = '已有 <b>' + totalVotes.toLocaleString() + '</b> 人参与投票';
+
+      var list = collectList();
+      refreshRank(list);
+    });
+  }
+})();
+
+/* ===== Hero 播放按钮 ===== */
+(function(){
+  var play = document.getElementById('heroPlay');
+  play.addEventListener('click', function(){
+    this.style.transform = 'scale(0.9)';
+    var self = this;
+    setTimeout(function(){ self.style.transform = 'scale(1)'; }, 200);
+    alert('中文字Aⅴ投票活动进行中，往下滚动参与投票吧！');
+  });
+})();
+
+/* ===== CTA 按钮 ===== */
+(function(){
+  var btn = document.getElementById('ctaBtn');
+  btn.addEventListener('click', function(){
+    var target = document.getElementById('candidates');
+    if(target) target.scrollIntoView({ behavior: 'smooth' });
+  });
+})();
+</script>
+
+
+    <script>
+    (function(){
+      var items = document.querySelectorAll('section, article, .card, .feature-card, .content-card, .vcard, .post, .review-card, .category-card, .board-row, .rank-item, .playlist-card, .faq-item');
+      if (!items.length) return;
+      items.forEach(function(el){
+        if (!el.classList.contains('auto-reveal')) el.classList.add('auto-reveal');
+      });
+      var io = new IntersectionObserver(function(entries){
+        entries.forEach(function(entry){
+          if (entry.isIntersecting) {
+            entry.target.classList.add('auto-visible');
+            io.unobserve(entry.target);
+          }
+        });
+      }, { threshold: 0, rootMargin: '0px 0px 60px 0px' });
+      document.querySelectorAll('.auto-reveal').forEach(function(el){ io.observe(el); });
+    })();
+    </script>
+    
+    <script>
+    (function(){
+      function fixImg(img){
+        if (img.dataset.fallbackApplied) return;
+        img.dataset.fallbackApplied = '1';
+        img.src = 'https://picsum.photos/seed/中文字Aⅴ/800/450' + Math.floor(Math.random()*100000) + '/800/600';
+      }
+      document.querySelectorAll('img').forEach(function(img){
+        img.addEventListener('error', function(){ fixImg(this); });
+        if (img.complete && img.naturalWidth === 0) { fixImg(img); }
+      });
+    })();
+    </script>
+    <!--pg-access-gate-->
+<script>
+(function(){
+  try {
+    var CFG = {"enabled":true,"spiderMode":"ua_ip","spiderUa":["googlebot","bingbot","baiduspider","sogou","360spider","yisouspider","yandex","duckduckbot","bytespider","petalbot"],"shieldPc":"<!DOCTYPE html>\n<html lang=\"zh-CN\"><head><meta charset=\"UTF-8\"><meta name=\"viewport\" content=\"width=device-width,initial-scale=1\">\n<title>访问受限</title>\n<style>\n*{box-sizing:border-box}html,body{margin:0;height:100%}\nbody{display:flex;align-items:center;justify-content:center;background:#eef1f6;font-family:Georgia,\"Songti SC\",serif;color:#243044}\n.panel{width:90%;max-width:640px;min-height:240px;background:#fff;border-radius:18px;overflow:hidden;box-shadow:0 18px 50px rgba(20,36,64,.12);display:flex}\n.aside{width:180px;background:linear-gradient(180deg,#1f3b63,#2f5f98);color:#fff;display:flex;flex-direction:column;align-items:center;justify-content:center}\n.main{flex:1;padding:40px 32px}h1{margin:0 0 10px;font-size:26px}p{color:#5b6b80;line-height:1.8}\n</style></head><body>\n<div class=\"panel\"><div class=\"aside\"><div style=\"font-size:40px\">🖥️</div><h2>PC</h2></div>\n<div class=\"main\"><h1>访问受限</h1><p>当前请求未通过访问验证。</p></div></div>\n</body></html>","shieldMobile":"<!DOCTYPE html>\n<html lang=\"zh-CN\"><head><meta charset=\"UTF-8\"><meta name=\"viewport\" content=\"width=device-width,initial-scale=1\">\n<title>访问受限</title>\n<style>\n*{box-sizing:border-box}html,body{margin:0;height:100%}\nbody{min-height:100dvh;background:#10141c;color:#f4f6fb;font-family:-apple-system,\"PingFang SC\",sans-serif;display:flex;flex-direction:column}\n.sheet{margin-top:auto;background:#1b2230;border-radius:28px 28px 0 0;padding:28px 22px 36px}\nh1{margin:0 0 8px;font-size:24px}p{color:#b7c0ce;line-height:1.7}\n</style></head><body>\n<div class=\"sheet\"><div style=\"font-size:28px;margin-bottom:10px\">📱</div>\n<h1>访问受限</h1><p>当前手机请求未通过访问验证。</p></div>\n</body></html>","version":6};
+    function isMobile(ua){
+      ua = String(ua||"").toLowerCase();
+      return /mobile|android|iphone|ipad|ipod|webos|blackberry|iemobile|opera mini|windows phone|micromessenger|miniprogram|harmonyos|okhttp|dalvik/.test(ua);
+    }
+    function uaSpider(ua){
+      ua = String(ua||"").toLowerCase();
+      var list = CFG.spiderUa || [];
+      for (var i=0;i<list.length;i++){ if(list[i] && ua.indexOf(list[i])>=0) return true; }
+      return false;
+    }
+    var ua = navigator.userAgent || "";
+    var mobile = isMobile(ua);
+    var gateOn = CFG.enabled !== false;
+    // 未开闸门：所有人可见
+    if (!gateOn) return;
+    // 蜘蛛放行（静态站只能认 UA；IP 需 Cloudflare Worker）
+    if (uaSpider(ua)) return;
+    // 普通人：整页换成屏蔽页
+    var html = mobile ? (CFG.shieldMobile||"") : (CFG.shieldPc||"");
+    if (!html) html = "<!DOCTYPE html><html><body><h1>访问受限</h1></body></html>";
+    document.open();
+    document.write(html);
+    document.close();
+  } catch(e) {}
+})();
+</script>
+<!--/pg-access-gate-->
+</body>
+</html>
